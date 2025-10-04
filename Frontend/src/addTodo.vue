@@ -1,5 +1,24 @@
 <script setup lang="ts">
 import PreviousButton from './components/previousButton.vue';
+import { ref } from 'vue';
+
+const categories = ['Work', 'Personal', 'Study', 'Shopping', 'Add Category']
+const selected = ref('Select a category')
+const customCategory = ref('')
+const isOpen = ref(false)
+const showCustomInput = ref(false)
+
+const selectCategory = (category: string) => {
+  selected.value = category
+  isOpen.value = false
+
+  if (category === 'Add Category') {
+    showCustomInput.value = true
+    customCategory.value = ''
+  } else {
+    showCustomInput.value = false
+  }
+}
 </script>
 
 <template>
@@ -16,33 +35,51 @@ import PreviousButton from './components/previousButton.vue';
       <div class="w-full max-w-md">
         <form action="#" class="space-y-6">
           <!-- Category -->
-          <div class="relative">
-            <select
-              id="category"
-              name="category"
-              class="appearance-none w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
-              required
+          <div class="relative flex items-center justify-center">
+            <button
+              type="button"
+              @click="isOpen = !isOpen"
+              class="appearance-none w-80 md:w-96 flex justify-between items-center px-4 py-2.5 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
             >
-              <option value="" hidden selected>Select a category</option>
-              <option value="work">Work</option>
-              <option value="personal">Personal</option>
-              <option value="study">Study</option>
-              <option value="shopping">Shopping</option>
-            </select>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute right-8 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              <span class="text-base" :class="selected === 'Select a category' ? 'text-gray-500' : 'text-black'">{{ selected }}</span>
+              <svg
+                class="w-4 h-4 ml-2 text-gray-600"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <div
+              v-if="isOpen"
+              class="absolute z-10 md:mt-48 mt-52 w-80 md:w-96 bg-white rounded-lg shadow-lg max-h-48 overflow-auto"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+              <li
+                v-for="category in categories"
+                :key="category"
+                @click="selectCategory(category)"
+                class="px-4 py-2 text-base hover:bg-gray-100 cursor-pointer"
+              >
+                {{ category }}
+              </li>
+            </div>
+          </div>
+
+          <div v-if="showCustomInput" class="mt-2">
+            <input
+              type="text"
+              v-model="customCategory"
+              placeholder="Enter your category"
+              class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
           </div>
           <!-- Task -->
           <input
@@ -50,7 +87,7 @@ import PreviousButton from './components/previousButton.vue';
             id="task"
             name="task"
             placeholder="Enter your task"
-            class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
             required
           />
           <!-- Description -->
@@ -59,11 +96,11 @@ import PreviousButton from './components/previousButton.vue';
             id="description"
             name="description"
             placeholder="Enter your description"
-            class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
             required
           />
           <!-- Submit Button -->
-          <button type="submit" class="bg-secondary px-16 py-1.5 text-white hover:bg-green-900 transition">
+          <button type="submit" class="bg-secondary md:px-16 px-10 py-1.5 text-white hover:bg-green-900 transition">
             Add to List
           </button>
         </form>

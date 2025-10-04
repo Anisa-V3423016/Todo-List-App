@@ -22,13 +22,13 @@ const goToRegister = () => {
             <div class="w-full max-w-md">
                 <form action="#" class="space-y-6"> 
                     <!-- Email -->
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Password -->
-                    <input type="password" id="password" name="password" placeholder="Confirm password" class="w-96 px-4 py-2 mb-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="password" id="password" name="password" placeholder="Confirm password" class="md:w-96 w-80 px-4 py-2 mb-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Forgot Password Button -->
                     <button type="submit" class="px-16 py-1.5 text-secondary font-medium mb-3">Forgot password?</button>
                     <!-- Submit Button -->
-                    <button @click="goToDashboard" type="submit" class="bg-secondary px-16 py-1.5 text-white hover:bg-green-900 transition">Login</button>
+                    <button @click="goToDashboard" type="submit" class="bg-secondary md:px-16 px-10 py-1.5 text-white hover:bg-green-900 transition">Login</button>
                 </form>
                 <p class="text-sm mt-8">Don't have an account? 
                     <button @click="goToRegister" type="button" class="text-secondary font-bold">Sign Up</button>

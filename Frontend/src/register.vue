@@ -18,15 +18,15 @@ const goToLogin = () => {
             <div class="w-full max-w-md">
                 <form action="#" class="space-y-6"> 
                     <!-- Full Name -->
-                    <input type="name" id="name" name="name" placeholder="Enter your full name" class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="name" id="name" name="name" placeholder="Enter your full name" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Email -->
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Create Password -->
-                    <input type="password" id="password" name="password" placeholder="Create a password" class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="password" id="password" name="password" placeholder="Create a password" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Confirm Password -->
-                    <input type="password" id="password" name="password" placeholder="Confirm your password" class="w-96 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
+                    <input type="password" id="password" name="password" placeholder="Confirm your password" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Submit Button -->
-                    <button @click="goToLogin" type="submit" class="bg-secondary px-16 py-1.5 mt-10 text-white hover:bg-green-900 transition">Sign Up</button>
+                    <button @click="goToLogin" type="submit" class="bg-secondary md:px-16 px-10 py-1.5 mt-10 text-white hover:bg-green-900 transition">Sign Up</button>
                 </form>
                 <p class="text-sm mt-8">Already have an account? 
                     <button @click="goToLogin" type="button" class="text-secondary font-bold">Sign In</button>

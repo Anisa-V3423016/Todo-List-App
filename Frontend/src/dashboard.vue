@@ -4,7 +4,7 @@ import AddButton from './components/addButton.vue';
 
 <template>
   <div class="min-h-screen bg-primary">
-    <div class="relative bg-secondary h-48 w-full clip-diagonal">
+    <div class="relative bg-secondary md:h-48 h-52 w-full clip-diagonal">
       <div class="flex flex-col items-center justify-center h-full">
         <img
           src="/public/images/profil_image.png"
@@ -17,7 +17,7 @@ import AddButton from './components/addButton.vue';
     <div class="absolute inset-0 m-auto mt-44 w-56 h-56">
       <img src="/public/images/dashboard_image.png" alt="Dashboard Image" />
     </div>
-    <div class="mt-56">
+    <div class="mt-56 md:px-0 px-4">
       <h3 class="text-lg font-semibold text-left ml-5">Todo Tasks.</h3>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-sm"

@@ -10,7 +10,7 @@ const goToLogin = () => {
 
 <template>
   <div class="min-h-screen bg-primary">
-    <div class="max-w-3xl mx-auto font-poppins p-11">
+    <div class="max-w-3xl mx-auto font-poppins p-11 md:pt-10 pt-48">
       <div class="flex justify-center">
         <img
           src="/public/images/home_image.png"
