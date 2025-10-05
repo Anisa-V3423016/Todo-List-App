@@ -25,3 +25,13 @@ Thumbs.db
 
 # Abaikan file output dari framework
 coverage/
+
+# Backend specific
+/Backend/node_modules/
+/Backend/dist/
+/Backend/.env
+
+# Frontend specific
+/Frontend/node_modules/
+/Frontend/dist/
+/Frontend/.env

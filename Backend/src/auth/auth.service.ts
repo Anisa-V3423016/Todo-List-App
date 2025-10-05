@@ -10,7 +10,7 @@ export class AuthService {
 
   async register(data: RegisterDto) {
     if (data.password !== data.confirmPassword) {
-      throw new BadRequestException('Passwords do not match');
+      throw new BadRequestException('Password do not match');
     }
 
     const userExists = await this.prisma.user.findUnique({ where: { email: data.email } });
