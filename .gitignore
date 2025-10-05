@@ -1,0 +1,3 @@
+# Abaikan folder Backend saat di branch frontend
+/Backend
+/Backend/*
