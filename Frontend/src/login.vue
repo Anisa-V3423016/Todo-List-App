@@ -21,7 +21,15 @@ const handleLogin = async () => {
   errorMessage.value = '';
   try {
     const response = await loginUser({ email: email.value, password: password.value });
+
+    // simpan token
     localStorage.setItem('token', response.data.token);
+
+    // simpan data user 
+    if (response.data.user) {
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+    }
+
     alert('Login successful!');
     window.location.href = '/dashboard';
   } catch (error: any) {
@@ -40,16 +48,16 @@ const handleLogin = async () => {
         <div class="w-full max-w-md p-5 space-y-3 text-center">
             <h1 class="font-semibold text-xl">Welcome Back!</h1>
             <img src="/public/images/login_image.png" alt="Login Image" class="mx-auto mb-4 mt-5 w-56 h-56">
-            <div class="w-full max-w-md">
+            <div class="w-full max-w-md flex flex-col">
                 <form @submit.prevent="handleLogin" class="space-y-6"> 
                     <!-- Email -->
                     <input v-model="email" type="email" placeholder="Enter your email address" class="md:w-96 w-80 px-4 py-2 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Password -->
                     <input v-model="password" type="password" placeholder="Password" class="md:w-96 w-80 px-4 py-2 mb-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary" required>
                     <!-- Forgot Password Button -->
-                    <button type="submit" class="px-16 py-1.5 text-secondary font-medium mb-3">Forgot password?</button>
+                    <button type="submit" class="md:w-96 w-80 px-16 py-1.5 text-secondary font-medium mb-3">Forgot password?</button>
                     <!-- Submit Button -->
-                    <button type="submit" class="bg-secondary md:px-16 px-10 py-1.5 text-white hover:bg-green-900 transition">Login</button>
+                    <button type="submit" class="bg-secondary px-10 py-1.5 text-white hover:bg-green-900 transition">Login</button>
                 </form>
                 <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
                 <p class="text-sm mt-8">Don't have an account? 
